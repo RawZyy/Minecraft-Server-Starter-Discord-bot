@@ -7,7 +7,7 @@ const child_process = require('child_process');
 client.once('ready', () => {
     console.log('The bot is online! ;)')});
 
-client.on('messageCreate', message=>{
+cclient.on('messageCreate', message=>{
     console.log(message.content)
     if(!message.content.startsWith(PREFIX) || message.author.bot) return;
 
@@ -16,7 +16,11 @@ client.on('messageCreate', message=>{
 
     if(command === 'start'){
         message.channel.send('Starting Minecraft Server...');
-        child_process.execFile('FILENAME'); //replace FILENAME with your actual .bat filename
+        child_process.execFile('FILENAME');
+    } else if (command === 'stop'){
+        message.channel.send('you cannot stop a server with a command yet'); //work in progress ^^
+    }else if (command === 'status'){
+        message.channel.send("you cannot get server's status with a command yet"); //work in progress ^^
     }
 });
 client.login(token);
