@@ -15,7 +15,6 @@ client.on('messageCreate', message=>{
     const command = args.shift().toLowerCase();
 
     if(command === 'start'){
-        console.log('Starting MC server');
         message.channel.send('Starting Minecraft Server...');
         child_process.execFile('FILENAME'); //replace FILENAME with your actual .bat filename
     }
