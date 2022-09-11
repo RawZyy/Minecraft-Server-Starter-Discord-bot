@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({intents : [GatewayIntentBits.Guilds , GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
-const token = "HIDDENTOKEN"; //change HIDDENTOKEN to your bot's token
+const token = "HIDDENTOKEN"; //replace HIDDENTOKEN with your bot's token
 const PREFIX = '-'; //change this if you want to use another prefix
 const child_process = require('child_process');
 
@@ -18,7 +18,7 @@ client.on('messageCreate', message=>{
     if(command === 'start'){
         console.log('Starting MC server');
         message.channel.send('Starting Minecraft Server...');
-        child_process.execFile('FILENAME'); //change FILENAME to your actual .bat filename
+        child_process.execFile('FILENAME'); //replace FILENAME with your actual .bat filename
     }
 });
 client.login(token);
