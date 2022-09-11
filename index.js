@@ -5,8 +5,7 @@ const PREFIX = '-'; //change this if you want to use another prefix
 const child_process = require('child_process');
 
 client.once('ready', () => {
-    console.log('The bot is online! ;)')
-});
+    console.log('The bot is online! ;)')});
 
 client.on('messageCreate', message=>{
     console.log(message.content)
