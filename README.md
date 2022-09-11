@@ -1,4 +1,4 @@
-# Minecraft-Server-Discord-bot (coming soon)
+# Minecraft-Server-Discord-bot V1.0
 A discord bot that starts a minecraft server using a command (-start)
 
 feel free to use
