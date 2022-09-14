@@ -1,14 +1,16 @@
-const { Client, GatewayIntentBits, ActivityType } = require('discord.js');
+const { Client, GatewayIntentBits, ActivityType, Utils, DiscordAPIError, EmbedBuilder } = require('discord.js');
 const client = new Client({intents : [GatewayIntentBits.Guilds , GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
-const token = "HIDDENTOKEN"; //replace HIDDENTOKEN with your bot's token
-const PREFIX = '-'; //change this if you want to use another prefix
+const token = "INSERTTOKEN";
+const PREFIX = '-';
+const util = require("minecraft-server-util");
 const child_process = require('child_process');
 
 client.once('ready', () => {
-    client.user.setActivity("Made by RawZ", { type: ActivityType.Playing});
-    console.log('The bot is online! ;)')});
+    client.user.setActivity(`Made by RawZ✨`, { type: ActivityType.Playing});
+    console.log('Le bot est en ligne! ;)')});
 
-cclient.on('messageCreate', message=>{
+
+client.on('messageCreate', message=>{
     console.log(message.content)
     if(!message.content.startsWith(PREFIX) || message.author.bot) return;
 
@@ -17,11 +19,18 @@ cclient.on('messageCreate', message=>{
 
     if(command === 'start'){
         message.channel.send('Starting Minecraft Server...');
-        child_process.execFile('FILENAME');
+        child_process.execFile('starterserver.bat');
     } else if (command === 'stop'){
-        message.channel.send('you cannot stop a server with a command yet'); //work in progress ^^
+        message.channel.send('you cannot stop a server with a command yet');
+        
     }else if (command === 'status'){
-        message.channel.send("you cannot get server's status with a command yet"); //work in progress ^^
+        util.status("INSERTSERVERIP", INSERTSERVERPORT).then((response) =>{
+            console.log(response);
+            message.channel.send({embeds:[{title: "Server Status: Online 🟢", description: `${response.players.online} online players / ${response.players.max} max players`,color: 5763719}]});
+        })
+        .catch((error) =>{
+            message.channel.send({embeds:[{title: "Server Status: Offline 🔴", description: `type "-start" to start the server!`,color: 15548997}]});
+        })
     }
 });
 client.login(token);
