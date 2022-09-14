@@ -1,4 +1,4 @@
-# Minecraft-Server-Discord-bot V1.0
+# Minecraft-Server-Discord-bot V1.
 A discord bot that starts a minecraft server using a command (-start)
 You can also get your server's status using "-status"
 
